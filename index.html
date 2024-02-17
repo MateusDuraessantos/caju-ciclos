@@ -11,7 +11,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 /*  font-family: "Inter", sans-serif; */
 
-
 body::-webkit-scrollbar-thumb {
     background-color: gray;
     border-radius: 6px;
@@ -68,7 +67,6 @@ button {
     max-width: 1200px;
     margin: auto;
 }
-
 
 .button__blue {
     background: #3767E1;
@@ -181,7 +179,7 @@ nav {
 
 
 .header__logo {
-    height: 32px;
+    height: 52px;
     margin-right: 14px;
 }
 
@@ -212,17 +210,63 @@ nav {
     position: relative;
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.8fr;
     gap: 80px;
-    height: 700px;
+    min-height: 800px;
 }
+
+.banner__buttons {
+    display: flex;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.banner__buttons .button__blue {
+    font-weight: 700;
+    font-size: 16px;
+}  
+
+.button__whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #10A87F;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #10A87F;
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.button__whatsapp:hover {
+    background: #10A87F;
+    transition: .2s;
+    color: white;
+}
+
+.button__whatsapp::before {
+    content: '';
+    background-image: url('./src/icons/whatsapp.svg');
+    width: 22px;
+    height: 22px;
+    transition: .2s;
+}
+
+.button__whatsapp:hover::before {
+    transition: .2s;
+    background-image: url('./src/icons/whatsapp-white.svg');
+}
+
 
 .g-container__texts {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
-    gap: 40px;
+    gap: 30px;
 }
 
 h1 {
@@ -257,7 +301,39 @@ h1 {
     height: calc(100% + 200px);
 }
 
+/* Xodó */
+
+.xodo {
+    padding: 100px 0;
+}
+
+.xodo__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;   
+}
+
+.xodo__img {
+    width: 80%;
+}
+
+.xodo__column--2 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.xodo__link {
+    border: 2px solid #FF7500;
+    padding: 20px;
+    font-size: 14px;
+    color: black;
+    border-radius: 6px;
+}
+
 /* Contratar */
+
 .contratar {
     position: relative;
 }
@@ -283,6 +359,29 @@ h1 {
     height: 100%;
 }
 
+.contratar__percentage--container {
+    position: relative;
+}
+
+.contratar__column--2 {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 20px 0;
+}
+
+.contratar__icon {
+    position: absolute;
+    left: -74px;
+    top: -16px;
+}
+
+.contratar__percentage {
+    font-size: 40px;
+    color: #F08787;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
 
 .contratar .timelime {
     margin-top: 40px;
@@ -334,8 +433,8 @@ h1 {
 
 .ciclo__cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
 }
 
 .ciclo__img {
@@ -351,6 +450,16 @@ h1 {
     border: 2px solid #59D359;
     border-radius: 48px;
     padding: 30px;
+    text-align: start;
+}
+
+.ciclo__p {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.ciclo__text {
+    font-size: 16px;
 }
 
 /* Evolua */
@@ -371,6 +480,7 @@ h1 {
 }
 
 .tag__a--link {
+    pointer-events: none;
     position: absolute;
     height: 80px;
     top: -80px;
@@ -738,10 +848,15 @@ footer {
                 <div>
                     <div class="g-container__texts">
                         <img class="header__logo" src="./src/caju-ciclos__logo.svg" alt="">
-                        <h1>Sua empresa em movimento com Caju Ciclos</h1>
+                        <h1>Admissão 100% digital e gestão de dados descomplicada: potencialize sua empresa com Caju Ciclos!</h1>
                         <p class="banner__p">Acompanhe a jornada do colaborador de ponta a ponta, em uma única
                             plataforma para admissão e gestão de dados.</p>
-                        <button class="button__blue">Quero Caju Ciclos</button>
+                        <div class="banner__buttons">
+                            <button class="button__blue">Quero Caju Ciclos</button>
+                            <button class="button__whatsapp">
+                                Quero Caju Ciclos
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="banner__img">
@@ -755,26 +870,42 @@ footer {
         <section class="evolua">
             <div class="tag__a--link" id="evolua"></div>
             <div class="evolua__container width">
-                <img src="./src/ilustracao__01.svg" alt="">
                 <div class="g-container__texts">
                     <h2>Evolua seu RH e ganhe <br>
                         eficiência operacional na <br>
                         gestão de colaboradores
                     </h2>
-                    <p>
-                        Caju Ciclos é a plataforma ideal para empresas que querem centralizar a jornada do colaborador
-                        em um só lugar, ganhar eficiência na gestão de dados e acompanhar cada ciclo dele na firma, a
-                        partir da admissão.
-                    </p>
+                    
+                    <p>Caju Ciclos é a solução para empresas que precisam centralizar a jornada do colaborador em um só lugar, ganhar agilidade e eficiência na admissão digital e gestão de dados.</p>
 
-                    <p>
-                        Tudo isso com uma experiência leve e única, que se integra a todos os produtos da Caju!
-                    </p>
+                    <p>Tudo nos conformes com a LGPD (Lei Geral de Proteção de Dados) e com uma camada extra de segurança das informações. material</p>
+
+                    <p>Prove agora uma experiência leve e única, que se integra a outras soluções Caju!</p>
 
                     <button class="button__blue">Quero Caju Ciclos</button>
                 </div>
+                <img src="./src/ilustracao__01.svg" alt="">
             </div>
         </section>
+
+        <!-- XODÓ -->
+
+        <section class="xodo">
+            <div class="xodo__container width">
+                <img class="xodo__img" src="./src/notebook.svg" alt="">
+                <div class="xodo__column--2">
+                    <p class="H__grafismo H__grafismo--orange">Caju Ciclos já é o novo xodó das empresas</p>
+                    <a class="xodo__link" href="https://epocanegocios.globo.com/tecnologia/noticia/2023/09/caju-entra-em-saas-com-plataforma-de-gestao-de-rh-que-promete-reduzir-em-ate-30-dias-o-trabalho-da-area.ghtml" target="_blank">
+                        Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho da área
+                    </a>
+                    <a class="xodo__link" href="https://www.poder360.com.br/poder-empreendedor/caju-lanca-sistema-de-rh-on-line-para-pequenos-negocios/" target="_blank">
+                        Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho da área
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
 
         <!-- CONTRATAR -->
         
@@ -789,29 +920,28 @@ footer {
                     </h3>
                 </div>
 
-                <div>
-                    <p>Em uma pesquisa realizada com mais de 75 empresas – pequenas, médias e grandes – da base de clientes da Caju, identificamos alguns dos principais desafios do processo de admissão de novos colaboradores.</p>
-
-                    <div class="timelime">
-                        <div class="timeline__number timeline__number--red">
-                            <img class="timelime__icon" src="./src/icons/mountains.svg" alt="">
-                        </div>
-                        <p class="timelime__p timelime__p--red">Desafios</p>
-
-                        <p class="timeline__text--contratar">
-                            Centralizar as informações em uma única plataforma
-                        </p>
-                        <p class="timeline__text--contratar">
-                            Coleta e armazenamento de informações e documentos dos novos colaboradores
-                        </p>
-                        <p class="timeline__text--contratar">
-                            Visibilidade do processo para o RH e para o colaborador
-                        </p>
-                        <p class="timeline__text--contratar">
-                            Cadastro na contabilidade e parceiros de benefícios
+                <div class="contratar__column--2">
+                    <div class="contratar__percentage--container">
+                        <img class="contratar__icon" src="./src/icons/percentage-01.svg" alt="">
+                        <p class="contratar__percentage">52%</p>
+                        <p>
+                            das organizações têm 3 ou mais sistemas para consultar dados e informações sobre a jornada de colaboradores na empresa.
                         </p>
                     </div>
-
+                    <div class="contratar__percentage--container">
+                        <img class="contratar__icon" src="./src/icons/percentage-02.svg" alt="">
+                        <p class="contratar__percentage">43,3%</p>
+                        <p>
+                            dos profissionais de RH afirmam que o colaborador não tem visibilidade adequada do status de cada etapa da sua contratação
+                        </p>
+                    </div>
+                    <div class="contratar__percentage--container">
+                        <img class="contratar__icon" src="./src/icons/percentage-03.svg" alt="">
+                        <p class="contratar__percentage">65%</p>
+                        <p>
+                            dos líderes de RH não acham que o setor é atendido de forma adequada pela tecnologia.
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -828,7 +958,7 @@ footer {
                         <img class="ciclo__img" src="./src/icons/icon-0.svg" alt="">
                         <p class="ciclo__p">Opa, tem gente nova entrando na empresa?</p>
                         <p class="ciclo__text">
-                            Substitua as planilhas, formulários e outros sistemas ineficientes pela plataforma que te dá visibilidade de todas as etapas do processo de admissão, deixando o caminho - e seu tempo - livre para ações estratégicas.
+                            Substitua as planilhas, formulários e outros sistemas ineficientes pela plataforma customizável que te dá visibilidade de todas as etapas do processo de admissão, deixando o caminho - e seu tempo - livre para ações estratégicas.
                         </p>
                     </div>
 
@@ -845,6 +975,14 @@ footer {
                         <p class="ciclo__p">Faça o pedido dos benefícios Caju pra quem tá chegando!</p>
                         <p class="ciclo__text">
                             Todos os benefícios Caju são integrados com a plataforma, garantindo que, ao final do processo de admissão, seus colaboradores possam desfrutar dos melhores benefícios o quanto antes!
+                        </p>
+                    </div>
+
+                    <div class="ciclo__card">
+                        <img class="ciclo__img" src="./src/icons/icon-3.svg" alt="">
+                        <p class="ciclo__p">Um portal com mais autonomia para o colaborador</p>
+                        <p class="ciclo__text">
+                            Acesso exclusivo para colaboradores consultarem e atualizarem dados pessoais e profissionais e verificarem o status de ativação da conta Caju.
                         </p>
                     </div>
                 </div>
@@ -1121,8 +1259,6 @@ const clickItem = (event) => {
 for (let i = 0; i < collapseItems.length; i++) {
     collapseItems[i].addEventListener('click', clickItem)
 }
-
-
 </script>
 
 </html>
