@@ -74,6 +74,7 @@ button {
     cursor: pointer;
     width: max-content;
     text-decoration: none;
+    text-align: center;
     transition: .2s;
 }
 
@@ -87,13 +88,7 @@ button {
     transition: .2s;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.H__grafismo {
+h1, h2, h3, h4, h5, h6, .H__grafismo {
     position: relative;
     font-size: 32px;
 }
@@ -161,6 +156,7 @@ h6,
     display: flex;
     align-items: center;
     overflow: hidden;
+    padding: 100px 0;
 }
 
 .banner__container {
@@ -169,18 +165,24 @@ h6,
     align-items: center;
     grid-template-columns: 1fr 1.8fr;
     gap: 80px;
-    min-height: 800px;
 }
 
 .banner__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     white-space: nowrap;
+}
+
+.banner__column--2 {
+    position: relative;
+    z-index: 1;
 }
 
 .banner__buttons .button__blue {
     font-weight: 700;
     font-size: 16px;
+    text-wrap: wrap;
 }
 
 .button__whatsapp {
@@ -198,6 +200,7 @@ h6,
     text-decoration: none;
     width: max-content;
     cursor: pointer;
+    text-wrap: wrap;
     transition: .2s;
 }
 
@@ -212,6 +215,7 @@ h6,
     background-image: url('./src/icons/whatsapp.svg');
     width: 22px;
     height: 22px;
+    object-fit: contain;
     transition: .2s;
 }
 
@@ -256,8 +260,8 @@ h1 {
 }
 
 .banner__img--2 {
-    right: -30%;
-    height: calc(100% + 200px);
+    right: -432px;
+    height: 1000px;
 }
 
 /* Xodó */
@@ -339,6 +343,9 @@ h1 {
     position: absolute;
     left: -74px;
     top: -16px;
+    height: 56px;
+    width: 56px;
+    object-fit: contain;
 }
 
 .contratar__percentage {
@@ -433,7 +440,7 @@ h1 {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 70vh;
+    padding: 100px 0;
     background: #FAFAFA;
 }
 
@@ -444,11 +451,7 @@ h1 {
     gap: 100px;
 }
 
-.tag__a--link {
-    pointer-events: none;
-    position: absolute;
-    height: 80px;
-    top: -80px;
+.evolua__ilustra {
     width: 100%;
 }
 
@@ -789,11 +792,191 @@ h1 {
     position: relative;
 }
 
-@media screen and (max-width: 1000px) {}
+@media screen and (max-width: 1000px) {
+    .banner__container, .evolua__container, .caju__container, .contratar__container, .ciclo__cards, .modulo__container, .valor__container, .admissao__container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .xodo__container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
-@media screen and (max-width: 500px) {}
+    .width {
+        width: calc(100% - 50px)
+    }
 
-@media screen and (max-width: 400px) {}
+    /*  */
+
+
+    .banner {
+        padding-top: 40px;
+    }
+
+    .banner__img {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .banner__img--2 {
+        position: relative;     
+        right: initial;
+        height: 100%;
+        width: 80%;
+    }
+
+    .banner__img--1 {
+        width: 70%;
+    }
+
+    .contratar__grafismo {
+        top: -30px;
+        transform: rotate(180deg);
+        right: -200px;
+        left: initial;
+        bottom: 0;
+        height: 200px;
+    }
+
+    .contratar__column--2 {
+        margin-left: 80px;
+    }
+
+    .admissao__column--1 {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .admissao__ilustracao {
+        width: max-content;
+        height: 300px;
+        width: 100%;
+    }
+
+    .evolua__container {
+        gap: 40px;
+    }
+
+    .modulo__column--1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .gestao {
+        padding: 100px 0;
+    }
+    
+    .valor__container {
+        padding: 0;
+    }
+
+    .valor__container {
+        align-items: center;
+        gap: 60px;
+    }
+
+    .caju__grafismo {
+        left: -150px;
+        top: initial;
+        bottom: -25px;
+        height: 240px;
+    }
+    
+    .gestao__grafismo  {
+        width: 800px;
+    }
+    
+    .valor {
+        padding-top: 0;   
+    }
+    
+}
+
+@media screen and (max-width: 650px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .H__grafismo {
+        font-size: 24px;
+    }
+
+    br {
+        display: none;
+    }
+
+    /*  */
+
+    .admissao__column--1 {
+        flex-direction: column;
+    }
+
+    .button__blue, .button__whatsapp, .banner__buttons {
+        width: 100%;
+    }
+
+    .modulo__celular {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .list__texts {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .gestao__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .banner__img--2 {
+        width: 100%;
+    }
+
+    .banner__img--1 {
+        width: 100%;
+    }
+
+    .gestao .H__grafismo {
+        margin-bottom: 60px;
+    }
+
+    .gestao__grafismo {
+        width: 500px;
+        height: 900px;
+        right: -260px;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+
+    .modulo__grafismo {
+        position: absolute;
+        left: -300px;
+        top: -300px;
+        width: 580px;
+    }
+
+    .modulo--mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .modulo__celular {
+        height: initial;   
+    }
+
+    .calculadora {
+        width: 100%;
+    }
+
+}
     </style>
 </head>
 
@@ -807,10 +990,8 @@ h1 {
         <!-- BANNER -->
 
         <section class="banner">
-            <div class="tag__a--link" id="banner"></div>
             <div class="banner__container width">
-                <img class="banner__img--2" src="./src/grafismo-01.svg" alt="">
-                <div>
+                <div class="banner__column--2">
                     <div class="g-container__texts">
                         <img class="header__logo" src="./src/caju-ciclos__logo.svg" alt="">
                         <h1>Admissão 100% digital e gestão de dados descomplicada: potencialize sua empresa com Caju
@@ -827,6 +1008,7 @@ h1 {
                     </div>
                 </div>
                 <div class="banner__img">
+                    <img class="banner__img--2" src="./src/grafismo-01.svg" alt="">
                     <img class="banner__img--1" src="./src/pc.png" alt="">
                 </div>
             </div>
@@ -835,7 +1017,6 @@ h1 {
         <!-- EVOLUA -->
 
         <section class="evolua">
-            <div class="tag__a--link" id="evolua"></div>
             <div class="evolua__container width">
                 <div class="g-container__texts">
                     <h2 class="H__grafismo H__grafismo--green">Evolua seu RH e ganhe <br>
@@ -851,7 +1032,7 @@ h1 {
 
                     <p>Prove agora uma experiência leve e única, que se integra a outras soluções Caju!</p>
                 </div>
-                <img src="./src/ilustracao__01.svg" alt="">
+                <img class="evolua__ilustra" src="./src/ilustracao__01.svg" alt="">
             </div>
         </section>
 
@@ -882,7 +1063,7 @@ h1 {
 
         <!-- CONTRATAR -->
 
-        <section class="contratar" id="contratar">
+        <section class="contratar">
             <img class="contratar__grafismo" src="./src/grafismo-02.svg" alt="">
             <div class="contratar__container width">
                 <div class="contratar__column--1">
@@ -924,7 +1105,7 @@ h1 {
 
         <!-- CICLO -->
 
-        <section class="ciclo" id="ciclo">
+        <section class="ciclo">
             <div class="ciclo__container width">
                 <h4>Acompanhe de perto cada ciclo do colaborador</h4>
 
@@ -974,7 +1155,7 @@ h1 {
 
         <!-- ADMISSÃO -->
 
-        <section class="admissao" id="admissao">
+        <section class="admissao">
             <div class="admissao__container width">
                 <div class="admissao__column--1">
                     <h5 class="H__grafismo H__grafismo--yellow">
@@ -1034,7 +1215,7 @@ h1 {
 
         <!-- MÓDULO -->
 
-        <section class="modulo" id="modulo">
+        <section class="modulo">
             <div class="modulo__container width">
                 <div class="modulo__column--1">
 
@@ -1042,7 +1223,7 @@ h1 {
                     <img class="modulo__celular" src="./src/cellphones.png" alt="">
                 </div>
 
-                <div>
+                <div class="modulo--mobile">
                     <h6 class="H__grafismo H__grafismo--blue">A melhor experiência de <br>admissão para RH e colaborador
                     </h6>
 
@@ -1087,8 +1268,7 @@ h1 {
 
         <!-- GESTÃO -->
 
-        <section class="gestao" id="gestao">
-
+        <section class="gestao">
             <div class="gestao__grafismo--ctn width">
                 <img class="gestao__grafismo" src="./src/grafismo-04.svg" alt="">
                 <p class="H__grafismo H__grafismo--orange">
@@ -1171,14 +1351,6 @@ h1 {
                     <div class="calculadora__selector--ctn">
                         <label class="calculadora__seletor--label" for="calculadora__seletor">Indique o número de colaboradores</label>
                         <input class="calculadora__seletor" type="number" placeholder="Digite um número">
-                       <!--  <select class="calculadora__seletor" name="" id="calculadora__seletor" >
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                        </select> -->
                     </div>
                     
                     <p class="calculadora__description">Calcular o resultado a partir do valor de R$ 3 por colaborador</p>
@@ -1192,7 +1364,6 @@ h1 {
         <!-- CAJU -->
 
         <section class="caju">
-            <div class="tag__a--link" id="caju"></div>
             <div class="caju__container width">
                 <div class="caju__column--2">
                     <img class="caju__grafismo" src="./src/grafismo-05.svg" alt="">
@@ -1224,29 +1395,4 @@ h1 {
         </section>
     </main>
 </body>
-
-<script>
-    const collapse = document.getElementById('collapse')
-    const collapseItems = document.querySelectorAll('.collapse__item')
-
-
-    const clickItem = (event) => {
-        const target = event.currentTarget
-        const isExpand = document.querySelector('.is_expand')
-        const isTheCLickedOneActived = target.classList.contains('is_expand')
-
-        try {
-            isExpand.classList.remove('is_expand')
-            if (isTheCLickedOneActived) target.classList.remove('is_expand')
-            else target.classList.add('is_expand')
-        } catch {
-            target.classList.add('is_expand')
-        }
-    }
-
-    for (let i = 0; i < collapseItems.length; i++) {
-        collapseItems[i].addEventListener('click', clickItem)
-    }
-</script>
-
 </html>
