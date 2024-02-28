@@ -77,6 +77,7 @@ button {
     text-decoration: none;
     text-align: center;
     transition: .2s;
+    font-size: 16px;
 }
 
 .button__blue:hover {
@@ -157,22 +158,22 @@ h1, h2, h3, h4, h5, h6, .H__grafismo {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 100px 0;
+    padding: 40px 0;
 }
 
 .banner__container {
     position: relative;
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 1.8fr;
-    gap: 80px;
+    grid-template-columns: 460px 1fr;
+    gap: 40px;
 }
 
-.banner__buttons {
+.container__buttons {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
     white-space: nowrap;
+    z-index: 1;
 }
 
 .banner__column--2 {
@@ -180,7 +181,7 @@ h1, h2, h3, h4, h5, h6, .H__grafismo {
     z-index: 1;
 }
 
-.banner__buttons .button__blue {
+.container__buttons .button__blue {
     font-weight: 700;
     font-size: 16px;
     text-wrap: wrap;
@@ -195,7 +196,7 @@ h1, h2, h3, h4, h5, h6, .H__grafismo {
     border-radius: 8px;
     padding: 10px 20px;
     color: #10A87F;
-    background: none;
+    background: white;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
@@ -257,11 +258,11 @@ h1 {
     margin: auto;
     z-index: 1;
     width: 100%;
-    transform: scale(1.1);
+    transform: translatex(30px);
 }
 
 .banner__img--2 {
-    right: -432px;
+    right: -500px;
     height: 1000px;
 }
 
@@ -302,10 +303,17 @@ h1 {
     border-radius: 6px;
 }
 
+.xodo__logo {
+    height: 30px;
+    margin-bottom: 6px;
+    object-fit: contain;
+}
+
 /* Contratar */
 
 .contratar {
     position: relative;
+    overflow: hidden;
 }
 
 .contratar__grafismo {
@@ -330,6 +338,8 @@ h1 {
 }
 
 .contratar__percentage--container {
+    display: flex;
+    gap: 20px;
     position: relative;
 }
 
@@ -341,13 +351,11 @@ h1 {
 }
 
 .contratar__icon {
-    position: absolute;
-    left: -74px;
-    top: -16px;
     height: 56px;
     width: 56px;
     object-fit: contain;
 }
+
 
 .contratar__percentage {
     font-size: 40px;
@@ -358,6 +366,11 @@ h1 {
 
 .contratar .timelime {
     margin-top: 40px;
+}
+
+
+.contratar__texts {
+    margin-top: 16px;
 }
 
 .timeline__text--contratar {
@@ -681,6 +694,10 @@ h1 {
     padding: 100px 0;
 }
 
+.valor .g-container__texts {
+    margin-top: 20px;
+}
+
 .valor__container {
     display: flex;
     justify-content: space-between;
@@ -793,8 +810,233 @@ h1 {
     position: relative;
 }
 
+/* POPUP */
+
+.popup {
+    position: fixed;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.2);
+    z-index: 2;
+    transition: .6s;
+    backdrop-filter: blur(4px);
+}
+
+.popup--add {
+    visibility: initial;
+    opacity: 1;
+}
+
+.popup--remove {
+    animation: .5s popup_close;
+}
+
+
+/* DÚVIDA */
+
+.duvida {
+    padding: 100px 0;
+    height: 700px;
+}
+
+.duvida__container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.duvida__column--1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 360px;
+}
+
+.duvida__mascote {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+}
+
+.duvida__column--2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.duvida__mascote--mobile {
+    display: none;
+}
+
+.collapse {
+    border-width: 0 0 1px 0;
+    border-color: #E0E0E0;
+    border-style: solid;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.collapse__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-width: 1px 0 0 0;
+    padding: 20px 0;
+    height: max-content;
+    padding-right: 28px;
+    border-style: solid;
+    border-color: #E0E0E0;
+}
+
+.collapse__title {
+    color: #767676;
+    font-size: 600;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.collapse__icon {
+    position: absolute;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transform: rotate(180deg);
+    transition: .2s;
+}
+
+.collase__expand {
+    opacity: 0;
+    height: 0;
+}
+
+.is_expand .collase__expand {
+    padding-top: 12px;
+    height: 100%;
+    opacity: 1;
+}
+
+.is_expand .collapse__icon {
+    transform: rotate(0deg);
+}
+
+@keyframes popup_close {
+    from {
+        opacity: 1;
+        backdrop-filter: blur(4px);
+    }
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+}
+
+.popup__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.popup__container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    padding: 44px;
+    gap: 26px;
+    width: 520px;
+}
+
+.popup__text {
+    color: #767676;
+    font-size: 16px;
+}
+
+.popup__icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+    
+.button__blue--border {
+    background: white;
+    border: 1px solid #3767E1;
+    color: #3767E1;
+    border-radius: 8px;
+    padding: 13px 22px;
+    cursor: pointer;
+    width: max-content;
+    text-decoration: none;
+    text-align: center;
+    transition: .2s;
+    font-size: 16px;
+}
+
+.button__blue--border:hover {
+    background: #E80537;
+    border-color: #E80537;
+    color: white;
+    transition: .2s;
+}
+
+@media screen and (max-width: 1200px) {
+    .contratar__container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .contratar__grafismo {
+        top: -96px;
+        transform: rotate(180deg);
+        right: -200px;
+        left: initial;
+        bottom: 0;
+        height: 200px;
+    }
+}
+
 @media screen and (max-width: 1000px) {
-    .banner__container, .evolua__container, .caju__container, .contratar__container, .ciclo__cards, .modulo__container, .valor__container, .admissao__container {
+    
+    br {
+        display: none;
+    }
+
+    .calculadora__description--mobile {
+        display: none;
+    }
+
+    .container__buttons {
+        flex-wrap: wrap;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+
+    .H__grafismo, h4 {
+        font-size: 24px;
+    }
+    
+    .header__title--mobile {
+        display: none;
+    }
+
+    .banner__container {
+        grid-template-columns: 360px 1fr;
+    }
+
+    .banner__container, .evolua__container, .caju__container, .ciclo__cards, .modulo__container, .valor__container, .admissao__container {
         display: flex;
         flex-direction: column;
     }
@@ -829,19 +1071,6 @@ h1 {
 
     .banner__img--1 {
         width: 70%;
-    }
-
-    .contratar__grafismo {
-        top: -30px;
-        transform: rotate(180deg);
-        right: -200px;
-        left: initial;
-        bottom: 0;
-        height: 200px;
-    }
-
-    .contratar__column--2 {
-        margin-left: 80px;
     }
 
     .admissao__column--1 {
@@ -892,30 +1121,29 @@ h1 {
     .valor {
         padding-top: 0;   
     }
+
+    .evolua__ilustra {
+        width: 80%;
+    }
     
 }
 
 @media screen and (max-width: 650px) {
-
-    h1 {
-        font-size: 28px;
+    
+    .evolua__ilustra {
+        width: 100%;
     }
 
-    .H__grafismo {
-        font-size: 24px;
-    }
-
-    br {
-        display: none;
-    }
-
-    /*  */
+    .duvida__container {
+        display: flex;
+        flex-direction: column;
+    }   
 
     .admissao__column--1 {
         flex-direction: column;
     }
 
-    .button__blue, .button__whatsapp, .banner__buttons {
+    .button__blue, .button__whatsapp, .container__buttons {
         width: 100%;
     }
 
@@ -951,10 +1179,48 @@ h1 {
         height: 900px;
         right: -260px;
     }
+
+    /* Dúvida */
+
+    .duvida {
+        height: 880px;
+    }
+
+    .duvida__column--1 {
+        height: initial;
+    }
+    
+    .duvida__mascote {
+        display: none;
+    }
+
+    .duvida--mobile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .duvida__container {
+        display: flex;
+        flex-direction: column;
+    }  
+    
+    .duvida__mascote--mobile {
+        display: flex;
+        align-items: center;
+        width: 120px;
+        margin-right: 20px;
+    }
+
+    /*  */
     
 }
 
 @media screen and (max-width: 500px) {
+
+    .duvida {
+        height: max-content;
+    }
 
     .modulo__grafismo {
         position: absolute;
@@ -977,123 +1243,166 @@ h1 {
         width: 100%;
     }
 
+    .duvida--mobile {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
 }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <img class="header__logo" src="./src/logo.svg" alt="">
-    </header>
+<header class="header">
+    <img class="header__logo" src="./src/logo.svg" alt="">
+</header>
 
-    <main>
 
-        <!-- BANNER -->
+<!-- Popup -->
 
-        <section class="banner">
-            <div class="banner__container width">
-                <div class="banner__column--2">
-                    <div class="g-container__texts">
-                        <img class="header__logo" src="./src/caju-ciclos__logo.svg" alt="">
-                        <h1>Admissão 100% digital e gestão de dados descomplicada: potencialize sua empresa com Caju
-                            Ciclos!</h1>
-                        <p class="banner__p">O gostinho de facilidade que você procura para automatizar e centralizar os
-                            processos de admissão, gestão de dados do colaborador e integração para pedido de benefícios
-                            Caju!</p>
-                        <div class="banner__buttons">
-                            <button class="button__blue">Quero Caju Ciclos</button>
-                            <button class="button__whatsapp">
-                                Quero Caju Ciclos
-                            </button>
-                        </div>
+<div class="popup" id="popup" onclick="popup(event)">
+    <div class="popup__container">
+        <img class="popup__icon" src="./src/icons/icon-popup.svg">
+        <p class="popup__title">Estamos muito felizes com o seu interesse em provar Caju Ciclos!</p>
+        <p class="popup__text">
+            Escolha o melhor dia e horário para que um de nossos especialistas entre em contato. 
+        </p>
+        <div class="container__buttons">
+            <button class="button__blue--border">Cancelar</button>
+            <a
+                class="button__blue"
+                href="https://calendly.com/carolina-srocha/apresentacao-cajuciclos?month=2024-02&sfmc_id=1479505"
+                target="_blank
+            ">
+                Agendar bate-papo
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+<main>
+
+    <!-- BANNER -->
+
+    <section class="banner">
+        <div class="banner__container width">
+            <div class="banner__column--2">
+                <div class="g-container__texts">
+                    <img class="header__logo" src="./src/caju-ciclos__logo.svg" alt="">
+                    <h1>Admissão 100% digital e gestão de dados descomplicada<span class="header__title--mobile">: potencialize sua empresa com Caju
+                            Ciclos!
+                    </span></h1>
+                    <p class="banner__p">O gostinho de facilidade que você procura para automatizar e centralizar os
+                        processos de admissão, gestão de dados do colaborador e integração para pedido de benefícios
+                        Caju!</p>
+                    <div class="container__buttons">
+                        <button onclick="popup()" class="button__blue">Quero Caju Ciclos</button>
+                        <a class="button__whatsapp" href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0" target="_blank">
+                            Entrar em contato agora
+                        </a>
                     </div>
                 </div>
-                <div class="banner__img">
-                    <img class="banner__img--2" src="./src/grafismo-01.svg" alt="">
-                    <img class="banner__img--1" src="./src/pc.png" alt="">
-                </div>
             </div>
-        </section>
-
-        <!-- EVOLUA -->
-
-        <section class="evolua">
-            <div class="evolua__container width">
-                <div class="g-container__texts">
-                    <h2 class="H__grafismo H__grafismo--green">Evolua seu RH e ganhe <br>
-                        eficiência operacional na <br>
-                        gestão de colaboradores
-                    </h2>
-
-                    <p>Caju Ciclos é a solução para empresas que precisam centralizar a jornada do colaborador em um só
-                        lugar, ganhar agilidade e eficiência na admissão digital e gestão de dados.</p>
-
-                    <p>Tudo nos conformes com a LGPD (Lei Geral de Proteção de Dados) e com uma camada extra de
-                        segurança das informações. material</p>
-
-                    <p>Prove agora uma experiência leve e única, que se integra a outras soluções Caju!</p>
-                </div>
-                <img class="evolua__ilustra" src="./src/ilustracao__01.svg" alt="">
+            <div class="banner__img">
+                <img class="banner__img--2" src="./src/grafismo-01.svg" alt="">
+                <img class="banner__img--1" src="./src/pc.png" alt="">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- XODÓ -->
+    <!-- EVOLUA -->
 
-        <section class="xodo">
-            <div class="xodo__container width">
-                <div class="xodo__column--1"><img class="xodo__img" src="./src/notebook.svg" alt=""></div>
-                <div class="xodo__column--2">
-                    <p class="H__grafismo H__grafismo--orange">Caju Ciclos já é o novo <br> xodó das empresas</p>
-                    <a class="xodo__link"
-                        href="https://epocanegocios.globo.com/tecnologia/noticia/2023/09/caju-entra-em-saas-com-plataforma-de-gestao-de-rh-que-promete-reduzir-em-ate-30-dias-o-trabalho-da-area.ghtml"
-                        target="_blank">
-                        Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho
-                        da área
-                    </a>
-                    <a class="xodo__link"
-                        href="https://www.poder360.com.br/poder-empreendedor/caju-lanca-sistema-de-rh-on-line-para-pequenos-negocios/"
-                        target="_blank">
-                        Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho
-                        da área
-                    </a>
+    <section class="evolua">
+        <div class="evolua__container width">
+            <div class="g-container__texts">
+                <h2 class="H__grafismo H__grafismo--green">Evolua seu RH e ganhe <br>
+                    eficiência operacional na <br>
+                    gestão de colaboradores
+                </h2>
 
-                </div>
+                <p>Caju Ciclos é a solução para empresas que precisam centralizar a jornada do colaborador em um só
+                    lugar, ganhar agilidade e eficiência na admissão digital e gestão de dados.</p>
+
+                <p>Tudo nos conformes com a LGPD (Lei Geral de Proteção de Dados) e com uma camada extra de
+                    segurança das informações. material</p>
+
+                <p>Prove agora uma experiência leve e única, que se integra a outras soluções Caju!</p>
             </div>
-        </section>
+            <img class="evolua__ilustra" src="./src/ilustracao__01.svg" alt="">
+        </div>
+    </section>
+
+    <!-- XODÓ -->
+
+    <section class="xodo">
+        <div class="xodo__container width">
+            <div class="xodo__column--1"><img class="xodo__img" src="./src/notebook.svg" alt=""></div>
+            <div class="xodo__column--2">
+                <p class="H__grafismo H__grafismo--orange">Caju Ciclos já é o novo <br> xodó das empresas</p>
+                <a
+                    class="xodo__link"
+                    href="https://epocanegocios.globo.com/tecnologia/noticia/2023/09/caju-entra-em-saas-com-plataforma-de-gestao-de-rh-que-promete-reduzir-em-ate-30-dias-o-trabalho-da-area.ghtml"
+                    target="_blank"
+                >
+                    <img class="xodo__logo" src="./src/negocios.png" alt="">
+                    <br>
+                    Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho
+                    da área
+                </a>
+                <a
+                    class="xodo__link"
+                    href="https://www.poder360.com.br/poder-empreendedor/caju-lanca-sistema-de-rh-on-line-para-pequenos-negocios/"
+                    target="_blank"
+                >
+                    <img class="xodo__logo" src="./src/poder.png" alt="">
+                    <br>
+                    Caju entra em SaaS com plataforma de gestão de RH que promete reduzir em até 30 dias o trabalho
+                    da área
+                </a>
+
+            </div>
+        </div>
+    </section>
 
 
-        <!-- CONTRATAR -->
+    <!-- CONTRATAR -->
 
-        <section class="contratar">
-            <img class="contratar__grafismo" src="./src/grafismo-02.svg" alt="">
-            <div class="contratar__container width">
-                <div class="contratar__column--1">
-                    <h3 class="H__grafismo H__grafismo--red">
-                        Por que contratar uma <br>
-                        plataforma para cuidar da <br>
-                        jornada do colaborador?
-                    </h3>
-                </div>
+    <section class="contratar">
+        <img class="contratar__grafismo" src="./src/grafismo-02.svg" alt="">
+        <div class="contratar__container width">
+            <div class="contratar__column--1">
+                <h3 class="H__grafismo H__grafismo--red">
+                    Por que contratar uma <br>
+                    plataforma para cuidar da <br>
+                    jornada do colaborador?
+                </h3>
+            </div>
 
-                <div class="contratar__column--2">
-                    <div class="contratar__percentage--container">
-                        <img class="contratar__icon" src="./src/icons/percentage-01.svg" alt="">
+            <div class="contratar__column--2">
+                <div class="contratar__percentage--container">
+                    <img class="contratar__icon" src="./src/icons/percentage-01.svg" alt="">
+                    <div class="contratar__texts">
                         <p class="contratar__percentage">52%</p>
                         <p>
                             das organizações têm 3 ou mais sistemas para consultar dados e informações sobre a jornada
                             de colaboradores na empresa.
                         </p>
                     </div>
-                    <div class="contratar__percentage--container">
-                        <img class="contratar__icon" src="./src/icons/percentage-02.svg" alt="">
+                </div>
+                <div class="contratar__percentage--container">
+                    <img class="contratar__icon" src="./src/icons/percentage-02.svg" alt="">
+                    <div class="contratar__texts">
                         <p class="contratar__percentage">43,3%</p>
                         <p>
                             dos profissionais de RH afirmam que o colaborador não tem visibilidade adequada do status de
                             cada etapa da sua contratação
                         </p>
                     </div>
-                    <div class="contratar__percentage--container">
-                        <img class="contratar__icon" src="./src/icons/percentage-03.svg" alt="">
+                </div>
+                <div class="contratar__percentage--container">
+                    <img class="contratar__icon" src="./src/icons/percentage-03.svg" alt="">
+                    <div class="contratar__texts">
                         <p class="contratar__percentage">65%</p>
                         <p>
                             dos líderes de RH não acham que o setor é atendido de forma adequada pela tecnologia.
@@ -1101,299 +1410,431 @@ h1 {
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- CICLO -->
-
-        <section class="ciclo">
-            <div class="ciclo__container width">
-                <h4>Acompanhe de perto cada ciclo do colaborador</h4>
-
-                <div class="ciclo__cards">
-                    <div class="ciclo__card">
-                        <img class="ciclo__img" src="./src/icons/icon-0.svg" alt="">
-                        <p class="ciclo__p">Opa, tem gente nova entrando na empresa?</p>
-                        <p class="ciclo__text">
-                            Substitua as planilhas, formulários e outros sistemas ineficientes pela plataforma
-                            customizável que te dá visibilidade de todas as etapas do processo de admissão, deixando o
-                            caminho - e seu tempo - livre para ações estratégicas.
-                        </p>
-                    </div>
-
-                    <div class="ciclo__card">
-                        <img class="ciclo__img" src="./src/icons/icon-1.svg" alt="">
-                        <p class="ciclo__p">Que tal uma gestão de dados mais eficiente e segura?</p>
-                        <p class="ciclo__text">
-                            Centralize de forma simples e eficiente as informações dos colaboradores, consolidando cada
-                            ciclo dele dentro da sua organização. Com Caju Ciclos, fica mais fácil integrar dados e
-                            fazer análises dos indicadores estratégicos.
-                        </p>
-                    </div>
-
-                    <div class="ciclo__card">
-                        <img class="ciclo__img" src="./src/icons/icon-2.svg" alt="">
-                        <p class="ciclo__p">Faça o pedido dos benefícios Caju pra quem tá chegando!</p>
-                        <p class="ciclo__text">
-                            Todos os benefícios Caju são integrados com a plataforma, garantindo que, ao final do
-                            processo de admissão, seus colaboradores possam desfrutar dos melhores benefícios o quanto
-                            antes!
-                        </p>
-                    </div>
-
-                    <div class="ciclo__card">
-                        <img class="ciclo__img" src="./src/icons/icon-3.svg" alt="">
-                        <p class="ciclo__p">Um portal com mais autonomia para o colaborador</p>
-                        <p class="ciclo__text">
-                            Acesso exclusivo para colaboradores consultarem e atualizarem dados pessoais e profissionais
-                            e verificarem o status de ativação da conta Caju.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ADMISSÃO -->
-
-        <section class="admissao">
-            <div class="admissao__container width">
-                <div class="admissao__column--1">
-                    <h5 class="H__grafismo H__grafismo--yellow">
-                        Um processo de admissão <br>
-                        digital na medida certa
-                    </h5>
-                    <img class="admissao__ilustracao" src="./src/ilustracao__02.svg" alt="">
-                </div>
-                <div>
-                    <div class="timelime">
-                        <div class="timelime__container">
-                            <p class="timeline__number timeline__number--pink">1</p>
-                            <p class="timelime__p timelime__p--pink">Pré-cadastro</p>
-                        </div>
-                        <p class="timeline__text">
-                            O RH inicia o processo na plataforma, cadastrando as informações básicas do colaborador e seu
-                            novo cargo.
-                        </p>
-                    </div>
-                    <!--  -->
-                    <div class="timelime">
-                        <div class="timelime__container">
-                            <p class="timeline__number timeline__number--orange">2</p>
-                            <p class="timelime__p timelime__p--orange">Formulário de admissão</p>
-                        </div>
-                        <p class="timeline__text">
-                            A pessoa em processo de admissão recebe por e-mail o link para preencher o formulário, por onde
-                            enviará as informações e documentos necessários para o registro.
-                        </p>
-                    </div>
-                    <!--  -->
-                    <div class="timelime">
-                        <div class="timelime__container">
-                            <p class="timeline__number timeline__number--blue">3</p>
-                            <p class="timelime__p timelime__p--blue">Conferência e envio das informações</p>
-                        </div>
-                        <p class="timeline__text">
-                            As informações e documentos ficam disponíveis na plataforma. O RH pode conferir se está tudo
-                            certo, além de exportar ou compartilhar os dados do colaborador para cadastro em parceiros.
-                        </p>
-                    </div>
-                    <!--  -->
-                    <div class="timelime">
-                        <div class="timelime__container">
-                            <p class="timeline__number timeline__number--green">4</p>
-                            <p class="timelime__p timelime__p--green">Admissão concluída!</p>
-                        </div>
-                        <p class="timeline__text">
-                            Tudo pronto, o novo colaborador já está no diretório da empresa, com suas informações e
-                            documentos organizados todos no mesmo lugar.
-                        </p>
-                    </div>
-                    <img class="admissao__point" src="./src/point.svg" alt="">
+                <div class="container__buttons">
+                    <button class="button__blue" onclick="popup()">Agendar uma demonstração </button>
+                    <a  
+                        onclick="popup()"
+                        href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0" class="button__whatsapp"
+                        target="_blank"
+                    >
+                        Entrar em contato agora
+                    </a>
                 </div>
             </div>
-        </section>
 
-        <!-- MÓDULO -->
+        </div>
+    </section>
 
-        <section class="modulo">
-            <div class="modulo__container width">
-                <div class="modulo__column--1">
+    <!-- CICLO -->
 
-                    <img class="modulo__grafismo" src="./src/grafismo-03.svg" alt="">
-                    <img class="modulo__celular" src="./src/cellphones.png" alt="">
+    <section class="ciclo">
+        <div class="ciclo__container width">
+            <h4>Acompanhe de perto cada ciclo do colaborador</h4>
+
+            <div class="ciclo__cards">
+                <div class="ciclo__card">
+                    <img class="ciclo__img" src="./src/icons/icon-0.svg" alt="">
+                    <p class="ciclo__p">Opa, tem gente nova entrando na empresa?</p>
+                    <p class="ciclo__text">
+                        Substitua as planilhas, formulários e outros sistemas ineficientes pela plataforma
+                        customizável que te dá visibilidade de todas as etapas do processo de admissão, deixando o
+                        caminho - e seu tempo - livre para ações estratégicas.
+                    </p>
                 </div>
 
-                <div class="modulo--mobile">
-                    <h6 class="H__grafismo H__grafismo--blue">A melhor experiência de <br>admissão para RH e colaborador
-                    </h6>
+                <div class="ciclo__card">
+                    <img class="ciclo__img" src="./src/icons/icon-1.svg" alt="">
+                    <p class="ciclo__p">Que tal uma gestão de dados mais eficiente e segura?</p>
+                    <p class="ciclo__text">
+                        Centralize de forma simples e eficiente as informações dos colaboradores, consolidando cada
+                        ciclo dele dentro da sua organização. Com Caju Ciclos, fica mais fácil integrar dados e
+                        fazer análises dos indicadores estratégicos.
+                    </p>
+                </div>
 
-                    <div class="list__texts">
-                        <img class="list__icon" src="./src/icons/list-blue-1.svg" alt="">
-                        <div class="list__ctn">
-                            <p class="list__title">Personalize de acordo com a sua necessidade</p>
-                            <p class="list__p">
-                                Personalize formulários, mensagens de boas-vindas e listas de tarefas da admissão. Com
-                                Caju Ciclos, você pode customizar as etapas do processo com mais facilidade.
-                            </p>
-                        </div>
+                <div class="ciclo__card">
+                    <img class="ciclo__img" src="./src/icons/icon-2.svg" alt="">
+                    <p class="ciclo__p">Faça o pedido dos benefícios Caju pra quem tá chegando!</p>
+                    <p class="ciclo__text">
+                        Todos os benefícios Caju são integrados com a plataforma, garantindo que, ao final do
+                        processo de admissão, seus colaboradores possam desfrutar dos melhores benefícios o quanto
+                        antes!
+                    </p>
+                </div>
+
+                <div class="ciclo__card">
+                    <img class="ciclo__img" src="./src/icons/icon-3.svg" alt="">
+                    <p class="ciclo__p">Um portal com mais autonomia para o colaborador</p>
+                    <p class="ciclo__text">
+                        Acesso exclusivo para colaboradores consultarem e atualizarem dados pessoais e profissionais
+                        e verificarem o status de ativação da conta Caju.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ADMISSÃO -->
+
+    <section class="admissao">
+        <div class="admissao__container width">
+            <div class="admissao__column--1">
+                <h5 class="H__grafismo H__grafismo--yellow">
+                    Um processo de admissão <br>
+                    digital na medida certa
+                </h5>
+                <img class="admissao__ilustracao" src="./src/ilustracao__02.svg" alt="">
+            </div>
+            <div>
+                <div class="timelime">
+                    <div class="timelime__container">
+                        <p class="timeline__number timeline__number--pink">1</p>
+                        <p class="timelime__p timelime__p--pink">Pré-cadastro</p>
                     </div>
-
-                    <div class="list__texts">
-                        <img class="list__icon" src="./src/icons/list-blue-2.svg" alt="">
-                        <div class="list__ctn">
-                            <p class="list__title">Compartilhe as informações com quem precisa</p>
-                            <p class="list__p">
-                                Exporte dados e documentos dos colaboradores e facilite o cadastro e atualizações junto
-                                à contabilidade, plano de saúde, benefícios e outros parceiros. Você pode facilitar
-                                ainda mais criando relatórios personalizados.
-                            </p>
-                        </div>
+                    <p class="timeline__text">
+                        O RH inicia o processo na plataforma, cadastrando as informações básicas do colaborador e seu
+                        novo cargo.
+                    </p>
+                </div>
+                <!--  -->
+                <div class="timelime">
+                    <div class="timelime__container">
+                        <p class="timeline__number timeline__number--orange">2</p>
+                        <p class="timelime__p timelime__p--orange">Formulário de admissão</p>
                     </div>
-
-                    <div class="list__texts">
-                        <img class="list__icon" src="./src/icons/list-blue-3.svg" alt="">
-                        <div class="list__ctn">
-                            <p class="list__title">Acompanhe cada etapa do processo</p>
-                            <p class="list__p">
-                                Receba notificações a cada etapa concluída e o status de admissão em um painel de
-                                acompanhamento, garantindo transparência no processo e autonomia para o colaborador.
-                            </p>
-                        </div>
+                    <p class="timeline__text">
+                        A pessoa em processo de admissão recebe por e-mail o link para preencher o formulário, por onde
+                        enviará as informações e documentos necessários para o registro.
+                    </p>
+                </div>
+                <!--  -->
+                <div class="timelime">
+                    <div class="timelime__container">
+                        <p class="timeline__number timeline__number--blue">3</p>
+                        <p class="timelime__p timelime__p--blue">Conferência e envio das informações</p>
                     </div>
+                    <p class="timeline__text">
+                        As informações e documentos ficam disponíveis na plataforma. O RH pode conferir se está tudo
+                        certo, além de exportar ou compartilhar os dados do colaborador para cadastro em parceiros.
+                    </p>
+                </div>
+                <!--  -->
+                <div class="timelime">
+                    <div class="timelime__container">
+                        <p class="timeline__number timeline__number--green">4</p>
+                        <p class="timelime__p timelime__p--green">Admissão concluída!</p>
+                    </div>
+                    <p class="timeline__text">
+                        Tudo pronto, o novo colaborador já está no diretório da empresa, com suas informações e
+                        documentos organizados todos no mesmo lugar.
+                    </p>
+                </div>
+                <img class="admissao__point" src="./src/point.svg" alt="">
+            </div>
+        </div>
+    </section>
 
+    <!-- MÓDULO -->
+
+    <section class="modulo">
+        <div class="modulo__container width">
+            <div class="modulo__column--1">
+
+                <img class="modulo__grafismo" src="./src/grafismo-03.svg" alt="">
+                <img class="modulo__celular" src="./src/cellphones.png" alt="">
+            </div>
+
+            <div class="modulo--mobile">
+                <h6 class="H__grafismo H__grafismo--blue">A melhor experiência de <br>admissão para RH e colaborador
+                </h6>
+
+                <div class="list__texts">
+                    <img class="list__icon" src="./src/icons/list-blue-1.svg" alt="">
+                    <div class="list__ctn">
+                        <p class="list__title">Personalize de acordo com a sua necessidade</p>
+                        <p class="list__p">
+                            Personalize formulários, mensagens de boas-vindas e listas de tarefas da admissão. Com
+                            Caju Ciclos, você pode customizar as etapas do processo com mais facilidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="list__texts">
+                    <img class="list__icon" src="./src/icons/list-blue-2.svg" alt="">
+                    <div class="list__ctn">
+                        <p class="list__title">Compartilhe as informações com quem precisa</p>
+                        <p class="list__p">
+                            Exporte dados e documentos dos colaboradores e facilite o cadastro e atualizações junto
+                            à contabilidade, plano de saúde, benefícios e outros parceiros. Você pode facilitar
+                            ainda mais criando relatórios personalizados.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="list__texts">
+                    <img class="list__icon" src="./src/icons/list-blue-3.svg" alt="">
+                    <div class="list__ctn">
+                        <p class="list__title">Acompanhe cada etapa do processo</p>
+                        <p class="list__p">
+                            Receba notificações a cada etapa concluída e o status de admissão em um painel de
+                            acompanhamento, garantindo transparência no processo e autonomia para o colaborador.
+                        </p>
+                    </div>
                 </div>
 
             </div>
-        </section>
 
-        <!-- GESTÃO -->
+        </div>
+    </section>
 
-        <section class="gestao">
-            <div class="gestao__grafismo--ctn width">
-                <img class="gestao__grafismo" src="./src/grafismo-04.svg" alt="">
-                <p class="H__grafismo H__grafismo--orange">
-                    Gestão inteligente <br>das informações
+    <!-- GESTÃO -->
+
+    <section class="gestao">
+        <div class="gestao__grafismo--ctn width">
+            <img class="gestao__grafismo" src="./src/grafismo-04.svg" alt="">
+            <p class="H__grafismo H__grafismo--orange">
+                Gestão inteligente <br>das informações
+            </p>
+        </div>
+        <div class="gestao__container width">
+            <div class="list__texts">
+                <img class="list__icon" src="./src/icons/list-oragen-1.svg" alt="">
+                <div class="list__ctn">
+                    <p class="list__title">Diretório de dados</p>
+                    <p class="list__p">
+                        Confira a lista de informações de todos os colaboradores e ex-colaboradores da empresa e
+                        mantenha os dados da sua empresa sempre atualizados.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gestao__img"></div>
+
+            <div class="list__texts">
+                <img class="list__icon" src="./src/icons/list-oragen-2.svg" alt="">
+                <div class="list__ctn">
+                    <p class="list__title">Informações de conta Caju</p>
+                    <p class="list__p">
+                        Lista de colaboradores com conta Caju e respectivo status.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gestao__img"></div>
+
+            <div class="list__texts">
+                <img class="list__icon" src="./src/icons/list-oragen-3.svg" alt="">
+                <div class="list__ctn">
+                    <p class="list__title">Gestão de cadastros</p>
+                    <p class="list__p">
+                        Arquive cadastros de colaboradores que não estão mais na empresa, baixe informações ou copie
+                        dados em apenas um clique.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gestao__img"></div>
+
+            <div class="list__texts">
+                <img class="list__icon" src="./src/icons/list-oragen-4.svg" alt="">
+                <div class="list__ctn">
+                    <p class="list__title">Relatórios estratégicos</p>
+                    <p class="list__p">
+                        Visualize e exporte relatórios de colaboradores ativos, admissões, desligamentos, salários e
+                        mais para análise e compartilhamento com parceiros.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gestao__img"></div>
+
+            <div class="gestao__column--1">
+            </div>
+        </div>
+    </section>
+
+    <!-- VALOR -->
+
+    <section class="valor">
+        <div class="valor__container width">
+            <div class="g-container__texts">
+                <p class="H__grafismo H__grafismo--red">Quer descobrir agora o valor <br>
+                    do investimento em Caju <br>
+                    Ciclos para a sua empresa?
                 </p>
+                <p>Calcule e comprove que Caju Ciclos é a plataforma certa para seu RH e DP ganharem mais agilidade!</p>
             </div>
-            <div class="gestao__container width">
-                <div class="list__texts">
-                    <img class="list__icon" src="./src/icons/list-oragen-1.svg" alt="">
-                    <div class="list__ctn">
-                        <p class="list__title">Diretório de dados</p>
-                        <p class="list__p">
-                            Confira a lista de informações de todos os colaboradores e ex-colaboradores da empresa e
-                            mantenha os dados da sua empresa sempre atualizados.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gestao__img"></div>
-
-                <div class="list__texts">
-                    <img class="list__icon" src="./src/icons/list-oragen-2.svg" alt="">
-                    <div class="list__ctn">
-                        <p class="list__title">Informações de conta Caju</p>
-                        <p class="list__p">
-                            Lista de colaboradores com conta Caju e respectivo status.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gestao__img"></div>
-
-                <div class="list__texts">
-                    <img class="list__icon" src="./src/icons/list-oragen-3.svg" alt="">
-                    <div class="list__ctn">
-                        <p class="list__title">Gestão de cadastros</p>
-                        <p class="list__p">
-                            Arquive cadastros de colaboradores que não estão mais na empresa, baixe informações ou copie
-                            dados em apenas um clique.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gestao__img"></div>
-
-                <div class="list__texts">
-                    <img class="list__icon" src="./src/icons/list-oragen-4.svg" alt="">
-                    <div class="list__ctn">
-                        <p class="list__title">Relatórios estratégicos</p>
-                        <p class="list__p">
-                            Visualize e exporte relatórios de colaboradores ativos, admissões, desligamentos, salários e
-                            mais para análise e compartilhamento com parceiros.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gestao__img"></div>
-
-                <div class="gestao__column--1">
-                </div>
-            </div>
-        </section>
-
-        <!-- VALOR -->
-
-        <section class="valor">
-            <div class="valor__container width">
-                <div class="g-container__texts">
-                    <p class="H__grafismo H__grafismo--red">Quer descobrir agora o valor <br>
-                        do investimento em Caju <br>
-                        Ciclos para a sua empresa?
-                    </p>
-                    <p>Calcule e comprove que Caju Ciclos é a plataforma certa para seu RH e DP ganharem mais agilidade!</p>
-                </div>
-                <div class="calculadora">
-                    <div class="calculadora__display">
-                        
-                    </div>
-
-                    <div class="calculadora__selector--ctn">
-                        <label class="calculadora__seletor--label" for="calculadora__seletor">Indique o número de colaboradores</label>
-                        <input class="calculadora__seletor" type="number" placeholder="Digite um número">
-                    </div>
+            <div class="calculadora">
+                <div class="calculadora__display">
                     
-                    <p class="calculadora__description">Calcular o resultado a partir do valor de R$ 3 por colaborador</p>
-                    
-                    <a href="#" class="button__blue">Agendar uma demonstração</a>
-                    <a href="#" class="button__whatsapp">Entrar em contato agora</a>
+                </div>
+
+                <div class="calculadora__selector--ctn">
+                    <label class="calculadora__seletor--label" for="calculadora__seletor">Indique o número de colaboradores</label>
+                    <input class="calculadora__seletor" type="number" placeholder="Digite um número">
+                </div>
+                
+                <p class="calculadora__description"><strong class="calculadora__description--mobile">R$ 3 por colaborador</p>
+                
+                <button class="button__blue" onclick="popup()">Agendar uma demonstração</button>
+                <a class="button__whatsapp" href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0" target="_blank">Entrar em contato agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAJU -->
+
+    <section class="caju">
+        <div class="caju__container width">
+            <div class="caju__column--2">
+                <img class="caju__grafismo" src="./src/grafismo-05.svg" alt="">
+            </div>
+            <div class="caju__column--2">
+                <img class="caju__img" src="./src/caju-ciclos__logo.svg" alt="">
+
+                <p class="H__grafismo">
+                    Caju Ciclos acompanha a <br>
+                    evolução do seu negócio
+                </p>
+
+                <p>
+                    Contrate agora Caju Ciclos e ganhe mais agilidade nas demandas da rotina corporativa e mais
+                    facilidade na integração com Caju Multibenefícios!
+                </p>
+
+                <p>
+                    Marque agora um papo com nossos especialistas e conheça mais vantagens de levar Caju Ciclos para
+                    sua empresa!
+                </p>
+
+                <div class="container__buttons">
+                    <button class="button__blue" onclick="popup()">Agendar papo com especialista</button>
+                    <a 
+                        class="button__whatsapp"
+                        href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                    >
+                        Entrar em contato agora
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CAJU -->
+    <!-- DÚVIDAS -->
 
-        <section class="caju">
-            <div class="caju__container width">
-                <div class="caju__column--2">
-                    <img class="caju__grafismo" src="./src/grafismo-05.svg" alt="">
+    <section class="duvida">
+        <div class="duvida__container width">
+            <div class="duvida__column--1">
+                <img class="duvida__mascote" src="./src/caju-mascote.svg" alt="">
+            </div>
+            <div class="duvida__column--2">
+                <div class="duvida--mobile">  
+                    <img class="duvida__mascote--mobile" src="./src/caju-mascote.svg" alt="">
+                    <div>
+                        <p class="H__grafismo">Ficou com alguma dúvida?</p>
+                        <br>
+                        <p>Dá uma olhadinha em algumas das dúvidas mais comuns</p>
+                    </div>
                 </div>
-                <div class="caju__column--2">
-                    <img class="caju__img" src="./src/caju-ciclos__logo.svg" alt="">
 
-                    <p class="H__grafismo">
-                        Caju Ciclos acompanha a <br>
-                        evolução do seu negócio
-                    </p>
-
-                    <p>
-                        Contrate agora Caju Ciclos e ganhe mais agilidade nas demandas da rotina corporativa e mais
-                        facilidade na integração com Caju Multibenefícios!
-                    </p>
-
-                    <p>
-                        Marque agora um papo com nossos especialistas e conheça mais vantagens de levar Caju Ciclos para
-                        sua empresa!
-                    </p>
-
-                    <div class="banner__buttons">
-                        <a href="#" class="button__blue">Agendar papo com especialista</a>
-                        <a href="#" class="button__whatsapp">Entrar em contato agora</a>
+                <div class="collapse" id="collapse">
+                    <div class="collapse__item ">
+                        <p class="collapse__title">Quem pode contratar Caju Ciclos?</p>
+                        <img class="collapse__icon" src="./src/icons/downArrow.svg" alt="">
+                        <p class="collase__expand">
+                            Todas as empresas que já possuem Caju Benefícios ou que desejam oferecer benefícios com a gente, podem contratar a plataforma Caju Ciclos. Consulte mais informações com o nosso time!
+                        </p>
+                    </div>
+                    <div class="collapse__item">
+                        <p class="collapse__title">Quais são os benefícios do Caju Ciclos para o RH?</p>
+                        <img class="collapse__icon" src="./src/icons/downArrow.svg" alt="">
+                        <div class="collase__expand">
+                            <p>
+                                Caju Ciclos oferece diversos benefícios para RH e empresas, desde a redução de tempo gasto em tarefas operacionais, a melhora da visibilidade do processo de admissão e a opção de extrair relatórios. Além disso, Caju Ciclos substitui o uso de planilhas, formulários e sistemas antiquados, colaborando com a eficiência operacional da área e permitindo que o RH tenha mais tempo para decisões estratégicas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="collapse__item">
+                        <p class="collapse__title">Como o Caju Ciclos ajuda a agilizar o processo de admissão de colaboradores?</p>
+                        <img class="collapse__icon" src="./src/icons/downArrow.svg" alt="">
+                        <div class="collase__expand">
+                            <p>
+                                Caju Ciclos ajuda a agilizar o processo de admissão de colaboradores por meio da automação de tarefas manuais, como coleta e envio de dados e documentos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="collapse__item">
+                        <p class="collapse__title">Caju Ciclos oferece suporte ao cliente?</p>
+                        <img class="collapse__icon" src="./src/icons/downArrow.svg" alt="">
+                        <div class="collase__expand">
+                            <p>
+                                Sim! Caju Ciclos oferece suporte para implementação e atendimento ao cliente, que é realizado por meio de canais de comunicação da Caju, como e-mail e chat, além de FAQ na plataforma para esclarecimento de dúvidas.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
+<script>
+/* Popup */
+    
+let handle = true
+let blockClick = true
+
+function popup(event) {
+    if(blockClick) {
+        const elPopup = document.getElementById('popup')
+        if(handle) {
+            elPopup.classList.add('popup--add')
+            document.body.style.overflow = 'hidden'
+            document.body.style.paddingRight = '6px'
+            handle = !handle
+        } else if(event.target.classList[0] == 'button__blue--border' || event.target.classList[0] == 'popup') {
+            document.body.style.overflow = ''
+            document.body.style.paddingRight = ''
+            elPopup.classList.remove('popup--add')
+            elPopup.classList.add('popup--remove')
+            setTimeout(() => {
+                elPopup.classList.remove('popup--remove')
+            }, 300);
+            handle = !handle
+        }
+        blockClick = false
+        setTimeout(() => {
+            blockClick = true
+        }, 510);
+    }
+} 
+
+
+
+
+/* Collapse */
+
+const collapse = document.getElementById('collapse')
+const collapseItems = document.querySelectorAll('.collapse__item')
+
+const clickItem = (event) => {
+    const target = event.currentTarget
+    const isExpand = document.querySelector('.is_expand') 
+    const isTheCLickedOneActived = target.classList.contains('is_expand')
+
+    try {
+        isExpand.classList.remove('is_expand')
+        if(isTheCLickedOneActived) target.classList.remove('is_expand')
+        else target.classList.add('is_expand')
+    } catch {
+        target.classList.add('is_expand')
+    }
+}
+
+for (let i = 0; i < collapseItems.length; i++) {
+    collapseItems[i].addEventListener('click', clickItem)
+}
+</script>
 </body>
 </html>
