@@ -770,6 +770,12 @@ h1 {
     font-weight: 600;
 }
 
+.calculadora__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 /* CAJU */
 
 .caju {
@@ -1675,9 +1681,10 @@ h1 {
                 </div>
                 
                 <p class="calculadora__description"><strong class="calculadora__description--mobile">R$ 3 por colaborador</p>
-                <button class="button__blue" onclick="popup()">Agendar uma demonstração</button>
-                <br><br>
-                <a class="button__whatsapp" href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0" target="_blank">Entrar em contato agora</a>
+                <div class="calculadora__buttons">
+                    <button class="button__blue" onclick="popup()">Agendar uma demonstração</button>
+                    <a class="button__whatsapp" href="https://api.whatsapp.com/send/?phone=5511935017814&text&type=phone_number&app_absent=0" target="_blank">Entrar em contato agora</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1772,6 +1779,10 @@ h1 {
         </div>
     </section>
 </main>
+
+<!-- Calculadora -->
+<script src="./calc.js"></script>
+
 <script>
 /* Popup */
     
@@ -1802,16 +1813,6 @@ function popup(event) {
         }, 510);
     }
 } 
-
-
-/* Calculadora */
-
-document.getElementById('calculadora').addEventListener('input', (e) => {
-    document.querySelector('.calculadora__display').innerText = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(e.target.value * 3)
-
-}) 
-
-
 
 /* Collapse */
 
